@@ -18,15 +18,13 @@ export type Tokens = {
 }
 
 export type LoginStates = {
-  email: string;
-  password: string;
   isLoading: boolean;
-  user: User | null;
   tokens: Tokens | null;
 }
 
 export interface LoginStoreProps extends LoginStates {
   login: (email: string, password: string, navigate: ReturnType<typeof useNavigate>) => void;
+  logout: () => void;
 
   makeAsync: <T>(props: {
     handle: () => Promise<T>

@@ -2,17 +2,15 @@ import { create } from "zustand";
 import { LoginStates, LoginStoreProps } from "./Auth.props";
 import { useNavigate } from 'react-router-dom';
 import { loginRequest } from "../../services/requests/auth/auth";
+import { createJSONStorage, persist } from "zustand/middleware";
 
 
 const initialState: LoginStates = {
-  email: '',
-  password: '',
   isLoading: false,
-  user: null,
   tokens: null
 }
 
-export const useAuthStore = create<LoginStoreProps> ((set, get) => ({
+export const useAuthStore = create(persist<LoginStoreProps> ((set, get) => ({
   ...initialState,
 
   login: async (
@@ -23,10 +21,10 @@ export const useAuthStore = create<LoginStoreProps> ((set, get) => ({
     const { makeAsync } = get();
 
     const handle = async (): Promise<void> => {
-      set({ email, password, isLoading: true });
+      set({ isLoading: true });
       const response = await loginRequest({ email, password });
       // Atualize o estado com os novos campos
-      set({ user: response.user, tokens: response.tokens, isLoading: false });
+      set({tokens: response.tokens, isLoading: false });
       navigate('/');
       console.log(response.tokens, 'tokens')
     }
@@ -36,6 +34,10 @@ export const useAuthStore = create<LoginStoreProps> ((set, get) => ({
     }
 
     void makeAsync({ handle, onError });
+  },
+
+  logout: () => {
+    set({ tokens: null });
   },
 
   makeAsync: async ({ handle, onError, onFinally }) => {
@@ -58,5 +60,10 @@ export const useAuthStore = create<LoginStoreProps> ((set, get) => ({
         if (onFinally) onFinally();
     }
 },
+}), 
+{
+  name: 'auth-storage',
+  storage: createJSONStorage(() => localStorage)
 }
-))
+)
+)
