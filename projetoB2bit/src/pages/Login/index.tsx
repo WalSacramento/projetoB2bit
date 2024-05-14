@@ -1,10 +1,13 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
-import axios from 'axios'
 import logoB2bit from '../../assets/img/logo_b2bit.svg'
-import { loginRequest } from '../../services/requests/auth/auth'
+import { useAuthStore } from '../../store/auth/Auth.store'
+import { useNavigate } from 'react-router-dom'
 
 export default function Login() {
+  const { login } = useAuthStore()
+  const navigate = useNavigate()
+
   // Define o esquema de validação utilizando Yup
   const validationSchema = Yup.object().shape({
     email: Yup.string().email('Email inválido').required('Campo obrigatório'),
@@ -15,8 +18,7 @@ export default function Login() {
   const handleSubmit = (values: any) => {
     // Lógica de autenticação aqui
     console.log(values)
-
-    loginRequest(values)
+    login(values.email, values.password, navigate)
   }
 
   return (
