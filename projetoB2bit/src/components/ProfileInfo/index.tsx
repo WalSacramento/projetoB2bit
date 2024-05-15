@@ -1,34 +1,26 @@
-import { useEffect } from 'react'
-import { useUserStore } from '../../store/user/User.store'
-import { useAuthStore } from '../../store/auth/Auth.store'
+import { Avatar } from 'antd'
+import { ProfileInfoProps } from './ProfileInfo.props'
 
-export default function ProfileInfo() {
-  const { getUser, user, isLoading } = useUserStore()
-  const { tokens } = useAuthStore()
-
-  useEffect(() => {
-    if (tokens) {
-      getUser(tokens.access)
-    }
-  }, [getUser, tokens])
-
-  useEffect(() => {
-    console.log(user, 'user profile')
-  }, [user])
-
+export default function ProfileInfo({ isLoading, user }: ProfileInfoProps) {
   return (
-    <div className="w-full md:w-96 bg-white rounded-xl shadow-2xl">
+    <div className="w-10/12 sm:w-2/3 md:w-3/5 lg:w-3/12 xl:w-3/12 bg-white rounded-xl shadow-2xl">
       {isLoading ? (
         <p>Loading...</p>
       ) : (
         <div className="w-full flex flex-col items-center">
           <div className="w-full flex flex-col items-center my-8">
             <p className="mb-2">Profile picture</p>
-            <img
-              src={user?.avatar ? user.avatar : '/profile.png'}
-              alt="Profile avatar"
-              className="w-14 h-14 rounded-lg"
-            />
+            {user?.avatar ? (
+              <img
+                src={user.avatar}
+                alt="Profile avatar"
+                className="w-14 h-14 rounded-lg"
+              />
+            ) : (
+              <Avatar className="w-14 h-14 rounded-lg text-blueB2 text-3xl font-extrabold">
+                {user?.name.charAt(0)}
+              </Avatar>
+            )}
           </div>
           <div className="w-10/12 text-sm mb-5">
             <p>
