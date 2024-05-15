@@ -1,19 +1,8 @@
 import { instance } from "../../api"
 
-export const getProfileRequest = async ({
-  accessToken
-}: {
-  accessToken: string
-}) => {
+export const getProfileRequest = async () => {
   try {
-    const { data } = await instance.get('/profile/', {
-      headers: {
-        Authorization: `Bearer ${accessToken}`
-      }
-    })
-
-    console.log(data, '|data getProfileRequest')
-
+    const { data } = await instance.get('/profile/')
     return data
   } catch (error) {
     console.error(error)
