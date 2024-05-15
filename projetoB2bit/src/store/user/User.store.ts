@@ -11,14 +11,12 @@ export const useUserStore = create<UserStoreProps>((set, get) => (
   {
     ...initialState,
 
-    getUser: async (
-      acessToken: string
-    ) => {
+    getUser: async () => {
       const { makeAsync } = get()
 
       const handle = async (): Promise<void> => {
         set({ isLoading: true })
-        const response = await getProfileRequest({ accessToken: acessToken })
+        const response = await getProfileRequest()
         set({ user: response, isLoading: false })
         console.log(response, 'response')
       }
