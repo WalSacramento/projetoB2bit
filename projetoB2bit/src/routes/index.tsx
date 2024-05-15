@@ -8,9 +8,9 @@ export const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<PrivateRoute />}>
-          <Route path="/" element={<Home />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/home" element={<PrivateRoute />}>
+          <Route path="/home" element={<Home />} />
         </Route>
         <Route path="*" element={<PrivateRoute />}>
           <Route path="*" element={<NotFound />} />
