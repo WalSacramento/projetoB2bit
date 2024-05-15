@@ -1,30 +1,64 @@
-# React + TypeScript + Vite
+# Projeto para vaga de Desenvolvedor Frontend na B2Bit
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+O projeto consiste em criar uma aplicação web utilizando react de acordo com o seguinte protótipo do figma:
+[Protótipo]([https://www.figma.com/file/1Q6Z2Q6Z6Q6Z6Q6Z6Q6Z6Q6Z/Projeto-B2Bit?node-id=0%3A1](https://www.figma.com/proto/klaZDgYO9WDU2z1LHeC3Dr/Projeto-Frontend?node-id=2-130&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=2%3A130))
 
-Currently, two official plugins are available:
+## Tecnologias utilizadas
+- TypeScript
+- ReactJS
+- VITE
+- TailWindCSS
+- Ant Design
+- Cypress
+- Vercel
+- Axios
+- React Router Dom
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Como rodar o projeto
+1. Clone o repositório do github com o comando:
+```git clone https://github.com/WalSacramento/projetoB2bit.git ```
 
-## Expanding the ESLint configuration
+2. Entre na pasta do projeto:
+```cd projetoB2bit```
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+3. Instale as dependências do projeto:
+```npm install``` ou ```yarn install```
 
-- Configure the top-level `parserOptions` property like this:
+4. Rode o projeto:
+```npm run dev``` ou ```yarn dev```
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+5. Acesse o projeto no navegador:
+```http://localhost:5173/```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Como rodar os testes
+1. Com o projeto rodando em sua máquina inicialize o cypress com o comando:
+```npx cypress open```
+
+2. Selecione a função de testes e2e e clique no arquivo de teste que deseja rodar.
+3. Escolha qual o navegador que deseja rodar os testes.
+4. Os testes serão exibidos, selecione os testes que deseja rodar.
+5. Os testes serão rodados e o resultado será exibido na tela.
+
+
+## Requisitos não funcionais
+- TypeScript
+- ReactJS
+- Uso de Interceptors
+- Testes
+- TailWind
+- Deploy
+
+## Requisitos funcionais
+- As a user, I want to have a sign in page, so I can have access to my profile
+- As a user, I want the system to keep me signed in, so I don't need to put my credentials every time I open the system
+- As a user, I want to have a feedback if I fill the wrong credentials, so I know that I did something wrong and I can fix it
+- As a user, I want to have a home page with my profile, so I can see my personal info
+- As a user, I want to have a logout button, so when I am finished, I can log out of my account
+
+## Observações
+- O projeto foi desenvolvido utilizando TypeScript, um superset de JavaScript que adiciona tipagem estática ao código.
+- O projeto foi desenvolvido utilizando ReactJS, uma biblioteca de JavaScript para construção de interfaces de usuário.
+- O projeto foi desenvolvido utilizando VITE, um bundler mais rápido que o webpack.
+- O projeto foi desenvolvido utilizando TailWindCSS, um framework de CSS que facilita a estilização de componentes.
+- O projeto foi desenvolvido utilizando Cypress, um framework de testes end-to-end.
+- O projeto foi hospedado no Vercel, uma plataforma de deploy de aplicações web.
