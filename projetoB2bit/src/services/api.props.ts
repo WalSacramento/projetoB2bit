@@ -5,6 +5,7 @@ export interface IAxiosRequestConfig extends AxiosRequestConfig {
   headers?: {
     Accept?: string;
     contentType?: string;
+    Authorization?: string;
   };
 }
 
