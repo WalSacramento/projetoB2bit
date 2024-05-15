@@ -6,13 +6,17 @@ O projeto consiste em criar uma aplicação web utilizando react de acordo com o
 ## Tecnologias utilizadas
 - TypeScript
 - ReactJS
-- VITE
+- Vite
 - TailWindCSS
 - Ant Design
 - Cypress
 - Vercel
 - Axios
 - React Router Dom
+- Formik
+- yup
+- Zustand
+- Tokens JWT
 
 ## Como rodar o projeto
 1. Clone o repositório do github com o comando:
@@ -39,8 +43,10 @@ O projeto consiste em criar uma aplicação web utilizando react de acordo com o
 4. Os testes serão exibidos, selecione os testes que deseja rodar.
 5. Os testes serão rodados e o resultado será exibido na tela.
 
+---
+## Sobre o desafio
 
-## Requisitos não funcionais
+### Requisitos não funcionais
 - TypeScript
 - ReactJS
 - Uso de Interceptors
@@ -48,17 +54,9 @@ O projeto consiste em criar uma aplicação web utilizando react de acordo com o
 - TailWind
 - Deploy
 
-## Requisitos funcionais
+### Requisitos funcionais
 - As a user, I want to have a sign in page, so I can have access to my profile
 - As a user, I want the system to keep me signed in, so I don't need to put my credentials every time I open the system
 - As a user, I want to have a feedback if I fill the wrong credentials, so I know that I did something wrong and I can fix it
 - As a user, I want to have a home page with my profile, so I can see my personal info
 - As a user, I want to have a logout button, so when I am finished, I can log out of my account
-
-## Observações
-- O projeto foi desenvolvido utilizando TypeScript, um superset de JavaScript que adiciona tipagem estática ao código.
-- O projeto foi desenvolvido utilizando ReactJS, uma biblioteca de JavaScript para construção de interfaces de usuário.
-- O projeto foi desenvolvido utilizando VITE, um bundler mais rápido que o webpack.
-- O projeto foi desenvolvido utilizando TailWindCSS, um framework de CSS que facilita a estilização de componentes.
-- O projeto foi desenvolvido utilizando Cypress, um framework de testes end-to-end.
-- O projeto foi hospedado no Vercel, uma plataforma de deploy de aplicações web.
