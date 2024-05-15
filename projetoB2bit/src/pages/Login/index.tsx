@@ -1,22 +1,26 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import logoB2bit from '../../assets/img/logo_b2bit.svg'
-import { useAuthStore } from '../../store/auth/Auth.store'
-import { useNavigate } from 'react-router-dom'
+import useAuthStore  from '../../store/auth/Auth.store'
+import { Navigate, useNavigate } from 'react-router-dom'
+import { verifyToken } from '../../utils/tokenVerification'
 
 export default function Login() {
-  const { login } = useAuthStore()
+  const { login, accessToken } = useAuthStore()
   const navigate = useNavigate()
 
-  // Define o esquema de validação utilizando Yup
+  if (verifyToken(accessToken)) {
+    return <Navigate to="/home" />
+  }
+
   const validationSchema = Yup.object().shape({
     email: Yup.string().email('Email inválido').required('Campo obrigatório'),
-    password: Yup.string().required('Campo obrigatório')
+    password: Yup.string()
+      .required('Campo obrigatório')
+      .min(6, 'A senha deve conter no mínimo 6 caracteres')
   })
 
-  // Função para lidar com o envio do formulário
   const handleSubmit = (values: any) => {
-    // Lógica de autenticação aqui
     console.log(values)
     login(values.email, values.password, navigate)
   }
@@ -28,7 +32,7 @@ export default function Login() {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        <Form className="bg-white w-full md:w-3/12 shadow-2xl rounded px-8 pt-6 pb-8 mb-4">
+        <Form className="bg-white w-full sm:w-2/3 md:w-3/5 lg:w-4/12 xl:w-3/12 shadow-2xl mt-4 rounded px-8 pt-6 pb-8 mb-4">
           <div className="flex flex-col justify-center items-center py-6">
             <img src={logoB2bit} alt="Logo b2bit" className="w-10/12" />
           </div>
@@ -69,7 +73,7 @@ export default function Login() {
             <ErrorMessage
               name="password"
               component="div"
-              className="text-red-500 text-xs mt-1"
+              className="text-red-500 text-lg mt-1"
             />
           </div>
           <div className="flex items-center justify-between">
