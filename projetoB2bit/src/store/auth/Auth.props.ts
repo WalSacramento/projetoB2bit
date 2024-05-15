@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { Store } from '../../interface/store.interface';
 
 export type User = {
   id: number;
@@ -19,7 +20,9 @@ export type Tokens = {
 
 export type LoginStates = {
   isLoading: boolean;
-  tokens: Tokens | null;
+  accessToken: string | null;
+  refreshToken: string | null;
+  errorMessage: string;
 }
 
 export interface LoginStoreProps extends LoginStates {
@@ -31,4 +34,15 @@ export interface LoginStoreProps extends LoginStates {
     onError?: (error: any) => void
     onFinally?: () => void
   }) => Promise<void>
+}
+
+export interface AuthStoreProps extends Store {
+  accessToken: string | null 
+  refreshToken: string | null
+  login: (cpf: string, password: string) => Promise<void>
+  setPasswordForgottenRequest: (cpf: string) => Promise<void>
+  checkUserAndSendRequest: (cpf: string) => Promise<void> 
+  logout: () => void
+  getRefreshToken: () => Promise<string>  
+  authType: number[]
 }
