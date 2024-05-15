@@ -14,6 +14,7 @@ export default {
         'boxGray': '#F1F1F1',
         'textGray': '#999999',
         'blueB2': '#02274F',
+        'yellowB2': '#FDCF00',
         'backgroundHome': '#F1F5F9',
       }
     },
