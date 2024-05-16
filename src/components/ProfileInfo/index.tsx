@@ -3,7 +3,7 @@ import { ProfileInfoProps } from './ProfileInfo.props'
 
 export default function ProfileInfo({ isLoading, user }: ProfileInfoProps) {
   return (
-    <div className="w-10/12 sm:w-2/3 md:w-3/5 lg:w-3/12 xl:w-3/12 bg-white rounded-xl shadow-2xl">
+    <div className="w-10/12 sm:w-1/2 md:w-1/3 xl:w-3/12 bg-white rounded-xl shadow-2xl">
       {isLoading ? (
         <div className="w-full flex flex-col items-center">
           <div className="w-full flex flex-col items-center my-8">
