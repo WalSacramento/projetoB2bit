@@ -18,7 +18,7 @@ O projeto consiste em criar uma aplicação web utilizando react de acordo com o
 - Zustand
 - Tokens JWT
 
-## Como rodar o projeto
+## Como rodar o projeto localmente
 1. Clone o repositório do github com o comando:
 ```git clone https://github.com/WalSacramento/projetoB2bit.git ```
 
@@ -42,6 +42,10 @@ O projeto consiste em criar uma aplicação web utilizando react de acordo com o
 3. Escolha qual o navegador que deseja rodar os testes.
 4. Os testes serão exibidos, selecione os testes que deseja rodar.
 5. Os testes serão rodados e o resultado será exibido na tela.
+
+## Como acessar o projeto online
+O deploy do projeto foi feito na plataforma Vercel e pode ser acessado através do link:
+[Projeto B2Bit](https://projeto-b2bit.vercel.app/)
 
 ---
 ## Sobre o desafio
