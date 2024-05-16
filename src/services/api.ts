@@ -14,7 +14,6 @@ const createInstance = (baseURL: string) => {
   instance.interceptors.request.use(
     async (config: AxiosRequestConfig): Promise<any> => {
       const { accessToken } = store.getState()
-      console.log(accessToken, 'tokens interceptor')
 
       if (accessToken) {
         config.headers = {

@@ -21,7 +21,6 @@ export default function Login() {
   })
 
   const handleSubmit = (values: any) => {
-    console.log(values)
     login(values.email, values.password, navigate)
   }
 
@@ -32,7 +31,7 @@ export default function Login() {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        <Form className="bg-white w-full sm:w-2/3 md:w-3/5 lg:w-4/12 xl:w-3/12 shadow-2xl mt-4 rounded px-8 pt-6 pb-8 mb-4">
+        <Form className="bg-white w-full  sm:w-1/2 md:w-1/3 xl:w-3/12 shadow-2xl mt-4 rounded px-8 pt-6 pb-8 mb-4">
           <div className="flex flex-col justify-center items-center py-6">
             <img src={logoB2bit} alt="Logo b2bit" className="w-10/12" />
           </div>

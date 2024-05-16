@@ -1,6 +1,7 @@
 import { create } from "zustand"
 import { UserStates, UserStoreProps } from "./User.props"
 import { getProfileRequest } from "../../services/requests/user/user"
+import { message } from "antd"
 
 const initialState: UserStates = {
   user: null,
@@ -18,11 +19,19 @@ export const useUserStore = create<UserStoreProps>((set, get) => (
         set({ isLoading: true })
         const response = await getProfileRequest()
         set({ user: response, isLoading: false })
-        console.log(response, 'response')
       }
 
       const onError = async (): Promise<void> => {
-        console.log('erro');
+        message.error({
+          content: 'Erro ao buscar usuário',
+          duration: 3, 
+          style: {
+            marginTop: '10vh',
+            color: '#ff4d4f',
+            fontWeight: 'bold'
+          }
+        })
+        set({ isLoading: true })
         
       }
 

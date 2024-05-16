@@ -3,7 +3,7 @@ describe('Homepage and profile info', () => {
     cy.visit('/')
   })
 
-  const sizes = [[375, 667], [768, 1024], [1280, 720]] // mobile, tablet and desktop viewport sizes
+  const sizes = [[375, 667], [768, 1024], [1280, 720]] 
 
   sizes.forEach((size) => {
     it(`should login and display profile info on ${size[0]}x${size[1]} screen`, () => {
