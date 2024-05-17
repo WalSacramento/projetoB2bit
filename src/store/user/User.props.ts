@@ -14,12 +14,19 @@ export type UserStates = {
   isLoading: boolean;
 }
 
+interface Avatar {
+  id: number;
+  high: string;
+  medium: string;
+  low: string;
+}
+
 export interface User {
   id: number;
   name: string;
   email: string;
   is_active: boolean;
-  avatar: string | null;
+  avatar: Avatar | null;
   type: string;
   created: string;
   modified: string;

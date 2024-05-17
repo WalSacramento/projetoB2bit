@@ -33,7 +33,7 @@ export default function ProfileInfo({ isLoading, user }: ProfileInfoProps) {
             <p className="mb-2">Profile picture</p>
             {user?.avatar ? (
               <img
-                src={user.avatar}
+                src={user.avatar.low}
                 alt="Profile avatar"
                 className="w-14 h-14 rounded-lg"
               />
