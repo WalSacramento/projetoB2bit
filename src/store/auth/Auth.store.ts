@@ -26,7 +26,7 @@ const useAuthStore = create(
         const { makeAsync } = get()
 
         const handle = async (): Promise<void> => {
-          set({ isLoading: true })
+          set({ isLoading: true, accessToken: null, refreshToken: null })
 
           const response = await loginRequest({ email, password })
           set({
